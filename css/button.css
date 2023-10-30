@@ -1,0 +1,30 @@
+.button {
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+.button_primary {
+    border: none;
+    font-size: .9rem;
+    font-weight: 400;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.button_primary:hover {
+    background-color: var(--primary-color-2);
+}
+
+.button_secondary {
+    border: none;
+    font-size: .9rem;
+    font-weight: 400;
+    background-color: var(--primary-color-3);
+    color: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    transition: all 0.2s ease-in-out;
+}

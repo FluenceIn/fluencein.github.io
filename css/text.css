@@ -1,0 +1,55 @@
+.text-primary {
+    color: var(--secondary-color);
+}
+
+.text-secondary {
+    color: var(--secondary-color-2);
+}
+
+.text-tertiary {
+    color: var(--secondary-color-3);
+}
+
+.text-white {
+    color: #fff;
+}
+
+.text-4xl {
+    font-size: 70px;
+}
+
+.text-3xl {
+    font-size: 48px;
+}
+
+.text-2xl {
+    font-size: 36px;
+}
+
+.text-l {
+    font-size: 20px;
+}
+
+.text-normal {
+    font-size: 16px;
+}
+
+.text-sm {
+    font-size: 14px;
+}
+
+.text-xs {
+    font-size: 12px;
+}
+
+.text-medium {
+    font-weight: 500;
+}
+
+.text-semibold {
+    font-weight: 600;
+}
+
+.text-bold {
+    font-weight: 700;
+}
