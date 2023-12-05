@@ -151,7 +151,7 @@ function featuresTab(tabIndex) {
   featuresTimeOut = setTimeout(function() {
     const nextTab = (featuresCurrentTab + 1) % 4; // 4 is the total number of tabs
     featuresTab(nextTab);
-  }, 4000);
+  }, 10000);
 }
 
 function solutionTab(tabIndex) {
@@ -177,5 +177,5 @@ function solutionTab(tabIndex) {
   solutionsTimeOut = setTimeout(function() {
     const nextTab = (solutionsCurrentTab + 1) % 4; // 4 is the total number of tabs
     solutionTab(nextTab);
-  }, 4000);
+  }, 10000);
 }
