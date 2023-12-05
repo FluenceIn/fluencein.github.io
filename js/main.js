@@ -139,7 +139,12 @@ function featuresTab(tabIndex) {
   }
 
   // Set 'active' class to the clicked tab and content
-  $('.features__tab').eq(tabIndex).addClass('features__tab_active features__tab_active-width ');
+  $('.features__tab').eq(tabIndex).addClass('features__tab_active features__tab_active-width ')
+  .on( "mouseenter", function(){
+    if(typeof featuresTimeOut !== "undefined"){
+      clearTimeout(featuresTimeOut);
+    }
+  });
   $('.features_tab_border').eq(tabIndex).addClass('features_tab_border_active ');
 
   $('.features__content').eq(tabIndex).addClass('features__content_active');
@@ -165,7 +170,13 @@ function solutionTab(tabIndex) {
   }
 
   // Set 'active' class to the clicked tab and content
-  $('.solutions__tab').eq(tabIndex).addClass('solutions__tab_active');
+  $('.solutions__tab').eq(tabIndex).addClass('solutions__tab_active')
+  .on( "mouseenter", function(){
+    if(typeof solutionsTimeOut !== "undefined"){
+      clearTimeout(solutionsTimeOut);
+    }
+  });
+
   $('.solutions__tab-progress').eq(tabIndex).addClass('solutions__tab-progress-active ');
 
   $('.solutions__content').eq(tabIndex).addClass('solutions__content_active');

@@ -335,6 +335,7 @@ body {
     padding: 1rem 1.5rem;
     cursor: pointer;
     position: relative;
+    transition: .2s all linear;
 }
 
 .features__tab_active {
@@ -353,8 +354,21 @@ body {
   
 .features_tab_border_active {
     display: block;
-    transition: 4s all linear;
+    transition: 10s all linear;
     width: 100%;
+}
+
+.features__tab:hover  {
+    background-color: #8B5CF6;
+    color: #fff;
+}
+
+.features__tab:hover .features__tab-title, .features__tab:hover .features__tab-text {
+    color: #fff !important;
+}
+
+.features__tab:hover .features__tab-icon {
+    background: #fff !important;
 }
   
 .features__tab:not(:last-child) {
@@ -564,7 +578,7 @@ body {
 
 .solutions__tab-progress-active {
     display: block;
-    transition: 4s all linear;
+    transition: 10s all linear;
     width: 100%;
 }
 
