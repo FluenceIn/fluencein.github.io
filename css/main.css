@@ -420,7 +420,6 @@ body {
 
 .features__content-item {
     border-radius: 30px;
-    box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.05);
     padding: 1.5rem;
     height: 36rem;
     display: flex;
@@ -431,6 +430,7 @@ body {
 .features__content-item img {
     width: auto;
     max-height: 100%;
+    box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.05);
     border-radius: 30px;
 }
 
@@ -632,6 +632,10 @@ body {
 
 .solutions__content_title, .solutions__content_image {
     flex: 1;
+}
+
+.solutions__content_image img {
+    border-radius: 2rem;
 }
 
 .solutions__content_specs {
