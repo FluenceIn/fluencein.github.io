@@ -25,9 +25,9 @@ $(document).ready(function(){
             [0,     1],
             [450,   1],
             [600,   2],
-            [700,   2],
+            [800,   3],
             [1000,  3],
-            [1200,  3],
+            [1200,  4],
             [1400,  4],
             [1600,  4]
         ]
@@ -124,7 +124,10 @@ $(document).ready(function(){
           viewFactor : 0,
         }, 75);
       })();
-      
+      $('.menu-toggle').on('click',function(){
+        $('.menu-toggle').toggleClass('active');
+        $('.header__responsive-menu--content').toggle();
+      });
 });
 
 
@@ -171,6 +174,8 @@ function solutionTab(tabIndex) {
 
   // Set 'active' class to the clicked tab and content
   $('.solutions__tab').eq(tabIndex).addClass('solutions__tab_active')
+
+  $('.solutions__tab_active')
   .on( "mouseenter", function(){
     if(typeof solutionsTimeOut !== "undefined"){
       clearTimeout(solutionsTimeOut);

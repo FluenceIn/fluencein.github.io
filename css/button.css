@@ -1,6 +1,7 @@
 .button {
     font-family: 'Inter', sans-serif;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .button_primary {
