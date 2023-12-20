@@ -50,12 +50,12 @@ $(document).ready(function(){
 
       $('.features__tab').click(function() {
         const tabIndex = $(this).index();
-        featuresTab(tabIndex);
+        featuresTab(tabIndex, true);
       });
 
       $('.solutions__tab').click(function() {
         const tabIndex = $(this).index();
-        solutionTab(tabIndex);
+        solutionTab(tabIndex, true);
       });
 
       featuresTab(0);
@@ -131,9 +131,8 @@ $(document).ready(function(){
 });
 
 
-function featuresTab(tabIndex) {
+function featuresTab(tabIndex, clicked = false) {
 
-  $(".features__tab_active").unbind('mouseenter mouseleave');
   // Remove 'active' class from the current tab and content
   $('.features__tab.features__tab_active').removeClass('features__tab_active features__tab_active-width');
   $('.features_tab_border.features_tab_border_active').removeClass('features_tab_border_active');
@@ -146,40 +145,24 @@ function featuresTab(tabIndex) {
   // Set 'active' class to the clicked tab and content
   $('.features__tab').eq(tabIndex).addClass('features__tab_active features__tab_active-width ')
 
-  $('.features__tab_active').on( "mouseenter", function(){
-    if(typeof featuresTimeOut !== "undefined"){
-      clearTimeout(featuresTimeOut);
-    }
-    $('.features__tab_active .features_tab_border_active').css('width', getComputedStyle($('.features__tab_active .features_tab_border_active')[0], "width").getPropertyValue("width"));
-    console.log(getComputedStyle($('.features_tab_border_active')[0], "width").getPropertyValue("width"));
-  })
-  .on( "mouseleave", function(){
-    if(typeof featuresTimeOut !== "undefined"){
-      clearTimeout(featuresTimeOut);
-    }
-    $('.features__tab_active .features_tab_border_active').css('width',"0%");
-    $('.features__tab_active  .features_tab_border_active').css('transition-duration','0ms');
-    setTimeout(function(){
-      $('.features__tab_active  .features_tab_border_active').removeAttr("style");
-    }, 100);
-    featuresTab(featuresCurrentTab);
-  });
-
-  $('.features_tab_border').eq(tabIndex).addClass('features_tab_border_active ');
 
   $('.features__content').eq(tabIndex).addClass('features__content_active');
 
-  // Update the current tab index
-  featuresCurrentTab = tabIndex;
+  if (!clicked) {
+    $('.features_tab_border').eq(tabIndex).addClass('features_tab_border_active ');
 
-  // Set a timeout to switch to the next tab after 4 seconds
-  featuresTimeOut = setTimeout(function() {
-    const nextTab = (featuresCurrentTab + 1) % 4; // 4 is the total number of tabs
-    featuresTab(nextTab);
-  }, 10000);
+    // Update the current tab index
+    featuresCurrentTab = tabIndex;
+  
+    // Set a timeout to switch to the next tab after 4 seconds
+    featuresTimeOut = setTimeout(function() {
+      const nextTab = (featuresCurrentTab + 1) % 4; // 4 is the total number of tabs
+      featuresTab(nextTab);
+    }, 10000);
+  } 
 }
 
-function solutionTab(tabIndex) {
+function solutionTab(tabIndex, clicked = false) {
   $(".solutions__tab_active").unbind('mouseenter mouseleave');
   // Remove 'active' class from the current tab and content
   $('.solutions__tab.solutions__tab_active').removeClass('solutions__tab_active');
@@ -193,36 +176,18 @@ function solutionTab(tabIndex) {
   // Set 'active' class to the clicked tab and content
   $('.solutions__tab').eq(tabIndex).addClass('solutions__tab_active')
 
-  $('.solutions__tab_active')
-  .on( "mouseenter", function(){
-    if(typeof solutionsTimeOut !== "undefined"){
-      clearTimeout(solutionsTimeOut);
-    }
-    $('.solutions__tab_active .solutions__tab-progress-active').css('width', getComputedStyle($('.solutions__tab_active  .solutions__tab-progress-active')[0], "width").getPropertyValue("width"));
-    console.log(getComputedStyle($('.solutions__tab-progress-active ')[0], "width").getPropertyValue("width"));
-  })
-  .on( "mouseleave", function(){
-    if(typeof solutionsTimeOut !== "undefined"){
-      clearTimeout(solutionsTimeOut);
-    }
-    $('.solutions__tab_active .solutions__tab-progress-active').css('width',"0%");
-    $('.solutions__tab_active  .solutions__tab-progress-active').css('transition-duration','100ms');
-    setTimeout(function(){
-      $('.solutions__tab_active  .solutions__tab-progress-active').removeAttr("style");
-    }, 100);
-    solutionTab(solutionsCurrentTab);
-  });
-
-  $('.solutions__tab-progress').eq(tabIndex).addClass('solutions__tab-progress-active ');
-
   $('.solutions__content').eq(tabIndex).addClass('solutions__content_active');
 
-  // Update the current tab index
-  solutionsCurrentTab = tabIndex;
+  if (!clicked) {
+    $('.solutions__tab-progress').eq(tabIndex).addClass('solutions__tab-progress-active ');
 
-  // Set a timeout to switch to the next tab after 4 seconds
-  solutionsTimeOut = setTimeout(function() {
-    const nextTab = (solutionsCurrentTab + 1) % 4; // 4 is the total number of tabs
-    solutionTab(nextTab);
-  }, 10000);
+    // Update the current tab index
+    solutionsCurrentTab = tabIndex;
+  
+    // Set a timeout to switch to the next tab after 4 seconds
+    solutionsTimeOut = setTimeout(function() {
+      const nextTab = (solutionsCurrentTab + 1) % 4; // 4 is the total number of tabs
+      solutionTab(nextTab);
+    }, 10000);
+  }
 }
